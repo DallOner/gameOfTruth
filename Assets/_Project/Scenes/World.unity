@@ -292,7 +292,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.44
+  orthographic size: 144
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -343,7 +343,7 @@ MonoBehaviour:
   targetCameraHeight: 300
   pixelPerfect: 1
   pixelSnapMode: 0
-  assetsPixelsPerUnit: 100
+  assetsPixelsPerUnit: 1
   showHUD: 0
 --- !u!1 &532929041
 GameObject:
