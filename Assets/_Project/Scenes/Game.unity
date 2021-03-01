@@ -296,6 +296,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3052243459544459236, guid: 6491072dd1b9a0b449daa9b5af00ffd6, type: 3}
+      propertyPath: distance
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052243459544459236, guid: 6491072dd1b9a0b449daa9b5af00ffd6, type: 3}
+      propertyPath: timeToMakeStep
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052243459544459236, guid: 6491072dd1b9a0b449daa9b5af00ffd6, type: 3}
+      propertyPath: timeBetweenSteps
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 3052243459544459239, guid: 6491072dd1b9a0b449daa9b5af00ffd6, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1065,7 +1077,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 215.25
+  orthographic size: 129.75
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

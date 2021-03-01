@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] //se usa para ver las variables en el editor a pesar de que sean privadas
     private Vector3 targetPosition; //tener siempre un lugar de referencia
 
-    public float enemySpeed = 1;//velocidad movimiento
     private Rigidbody2D playerRigidbody;//rigidbody enemigo
 
     private bool isMoving;//saber si se esta moviendo o no
