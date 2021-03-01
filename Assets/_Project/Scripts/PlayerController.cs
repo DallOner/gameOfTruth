@@ -28,15 +28,18 @@ public class PlayerController : MonoBehaviour
 
             if (Mathf.Abs(Input.GetAxisRaw(vertical)) > 0.5f)
             {
+                //targetPosition = new Vector3(this.transform.position.x, followTarget.transform.position.y, this.transform.position.z); //el target position seguira los pasos de x y y pero quedara alejada en z
 
-                //this.transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, Input.GetAxisRaw(vertical) * distance, 0), distance * Time.deltaTime);
+                //this.transform.position = Vector3.Lerp(this.transform.position, targetPosition, cameraSpeed * Time.deltaTime);
+
+                //this.transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, (Input.GetAxisRaw(vertical) * distance), 0), (Input.GetAxisRaw(vertical) * distance) * Time.deltaTime);
                 this.transform.Translate(new Vector2(0, Input.GetAxisRaw(vertical) * distance));
 
             }
-
         }
 
         
+
         animator.SetFloat(horizontal, Input.GetAxisRaw(horizontal));
         animator.SetFloat(vertical, Input.GetAxisRaw(vertical));
     }
