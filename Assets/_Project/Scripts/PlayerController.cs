@@ -12,42 +12,95 @@ public class PlayerController : MonoBehaviour
     [SerializeField] //se usa para ver las variables en el editor a pesar de que sean privadas
     private Vector3 targetPosition; //tener siempre un lugar de referencia
 
+    public float enemySpeed = 1;//velocidad movimiento
+    private Rigidbody2D playerRigidbody;//rigidbody enemigo
+
+    private bool isMoving;//saber si se esta moviendo o no
+
+    public float timeBetweenSteps;//tiempo entre movimientos
+    private float timeBetweenStepsCounter;//contador cuanto tiempo a pasado desde el ultimo movimiento
+
+    public float timeToMakeStep;//el tiempo que pasa en hacer el paso de una celda a la siguiente
+    private float timeToMakeStepCounter;//el condador de cuanto tiempo a pasado en hacer el paso
+
+    public Vector2 directionToMakeStep;//una direccion de movimiento
+
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        playerRigidbody = GetComponent<Rigidbody2D>();//inicilisamos las variabes
+
+        timeBetweenStepsCounter = timeBetweenSteps;//se inicialice con la informacion que le ponemos en unity
+        timeToMakeStepCounter = timeToMakeStep;//se inicialice con la informacion que le ponemos en unity
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown) 
+        //if (Input.anyKeyDown) 
+        //{
+            
+        //    //animator.SetFloat(horizontal, Input.GetAxisRaw(horizontal));
+        //    //animator.SetFloat(vertical, Input.GetAxisRaw(vertical));
+
+            
+
+            
+
+        //}
+
+        if (isMoving)
         {
-            if (Mathf.Abs(Input.GetAxisRaw(horizontal)) > 0.5f)
+            timeToMakeStepCounter -= Time.deltaTime;//descuenta el tiempo del ultimo renderisado
+            playerRigidbody.velocity = directionToMakeStep;//movemos al enemigo a la direccion
+
+            if (timeToMakeStepCounter < 0)//si se acaba el tiempo de movimiento
             {
-                this.transform.Translate(new Vector3(Input.GetAxisRaw(horizontal) * distance, 0, 0));
+                isMoving = false;//pone en falso el movimiento
+                timeBetweenStepsCounter = timeBetweenSteps;//reinicia el contador
+                playerRigidbody.velocity = Vector2.zero;//para el movimiento
+                directionToMakeStep = playerRigidbody.velocity;
             }
-
-            if (Mathf.Abs(Input.GetAxisRaw(vertical)) > 0.5f)
+        }
+        else//si no se esta moviendo
+        {
+            timeBetweenStepsCounter -= Time.deltaTime;//resta tiempo al contador
+            if (timeBetweenStepsCounter < 0)//si se acaba el tiempo de espera para el siguiente
             {
-                targetPosition = new Vector3(this.transform.position.x, this.transform.position.y + (Input.GetAxisRaw(vertical) * distance), 0); //el target position seguira los pasos de x y y pero quedara alejada en z
+                
 
-                this.transform.position = Vector3.Lerp(this.transform.position, targetPosition, speed * Time.deltaTime);
+                if (Mathf.Abs(Input.GetAxisRaw(horizontal)) > 0.5f)
+                {
+                    //this.transform.Translate(new Vector2(Input.GetAxisRaw(horizontal) * distance, 0));
 
-                //this.transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, (Input.GetAxisRaw(vertical) * distance), 0), (Input.GetAxisRaw(vertical) * distance) * Time.deltaTime);
-                //this.transform.Translate(new Vector2(0, Input.GetAxisRaw(vertical) * distance));
+                    directionToMakeStep = new Vector2( Input.GetAxisRaw(horizontal) * distance, 0);
+                    isMoving = true;//ponemos en true para empesar a movernos
+                    timeToMakeStepCounter = timeToMakeStep;//re iniciamos el contador
+                }
 
+                if (Mathf.Abs(Input.GetAxisRaw(vertical)) > 0.5f)
+                {
+                    
+                    directionToMakeStep = new Vector2(0, Input.GetAxisRaw(vertical) * distance);
+                    isMoving = true;//ponemos en true para empesar a movernos
+                    timeToMakeStepCounter = timeToMakeStep;//re iniciamos el contador
+                    //this.transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, (Input.GetAxisRaw(vertical) * distance), 0), (Input.GetAxisRaw(vertical) * distance) * Time.deltaTime);
+                    //this.transform.Translate(new Vector2(0, Input.GetAxisRaw(vertical) * distance));
+
+                }
             }
-            animator.SetFloat(horizontal, Input.GetAxisRaw(horizontal));
-            animator.SetFloat(vertical, Input.GetAxisRaw(vertical));
-
         }
 
-        
+        animator.SetFloat(horizontal, directionToMakeStep.x);//lo movemos ya con los valores dados
+        animator.SetFloat(vertical, directionToMakeStep.y);//lo 
 
 
 
-        
+
+
+
     }
 }
