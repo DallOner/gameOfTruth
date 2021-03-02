@@ -1,15 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class HealthManager : MonoBehaviour
 {
     /**** Variables. ****/
 
     [SerializeField]
     private int maxHealth;
-    [SerializeField]
-    private int currentHealth;
+
+    public int currentHealth;
+    
 
     /**** Metudus. ****/
 
@@ -35,6 +35,7 @@ public class HealthManager : MonoBehaviour
     public void DamageCharacter(int damage)
     {
         currentHealth -= damage;
+        
     }
 
     //Cuando el personaje hace 'Level Up', le actualizamos la vida, con mas vida y se la rellenamos completamente.

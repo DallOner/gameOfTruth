@@ -47,17 +47,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.anyKeyDown) 
-        //{
-
-        //    //animator.SetFloat(horizontal, Input.GetAxisRaw(horizontal));
-        //    //animator.SetFloat(vertical, Input.GetAxisRaw(vertical));
-
-
-
-
-
-        //}
+     
 
         walking = false;
         if (isMoving)
@@ -69,7 +59,6 @@ public class PlayerController : MonoBehaviour
                 isMoving = false;//pone en falso el movimiento
                 timeBetweenStepsCounter = timeBetweenSteps;//reinicia el contador
                 playerRigidbody.velocity = Vector2.zero;//para el movimiento
-                playerRigidbody.position = new Vector2(Mathf.Floor(playerRigidbody.position.x), Mathf.Round(playerRigidbody.position.y));
             }
             else {
 
@@ -117,14 +106,5 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat(LastHorizontal, lastMovement.x);//lo movemos ya con los valores dados
         animator.SetFloat(lastVertical, lastMovement.y);//lo 
 
-    }
-
-    private bool esMultiplo(int n1, int n2)
-    {
-        if (n1 % n2 == 0)
-        {
-            return true;
-        }
-        return false;
     }
 }
