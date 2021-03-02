@@ -6,8 +6,15 @@ public class PlayerController : MonoBehaviour
 {
     public float distance = 32f;
     public float speed = 4f;
+
+    private bool walking = false;
+    public Vector2 lastMovement = Vector2.zero;
     private const string horizontal = "Horizontal";
     private const string vertical = "Vertical";
+    private const string lastVertical = "LastVertical";
+    private const string LastHorizontal = "LastHorizontal";
+    private const string walkingState = "Walking";
+
     private Animator animator;
     [SerializeField] //se usa para ver las variables en el editor a pesar de que sean privadas
     private Vector3 targetPosition; //tener siempre un lugar de referencia
@@ -42,28 +49,32 @@ public class PlayerController : MonoBehaviour
     {
         //if (Input.anyKeyDown) 
         //{
-            
+
         //    //animator.SetFloat(horizontal, Input.GetAxisRaw(horizontal));
         //    //animator.SetFloat(vertical, Input.GetAxisRaw(vertical));
 
-            
 
-            
+
+
 
         //}
 
+        walking = false;
         if (isMoving)
         {
             timeToMakeStepCounter -= Time.deltaTime;//descuenta el tiempo del ultimo renderisado
-            playerRigidbody.velocity =  directionToMakeStep;//movemos al enemigo a la direccion
-
+            
             if (timeToMakeStepCounter < 0)//si se acaba el tiempo de movimiento
             {
                 isMoving = false;//pone en falso el movimiento
                 timeBetweenStepsCounter = timeBetweenSteps;//reinicia el contador
                 playerRigidbody.velocity = Vector2.zero;//para el movimiento
-                directionToMakeStep = playerRigidbody.velocity;
-                playerRigidbody.position = new Vector2(Mathf.Round(playerRigidbody.position.x), Mathf.Round(playerRigidbody.position.y));
+                playerRigidbody.position = new Vector2(Mathf.Floor(playerRigidbody.position.x), Mathf.Round(playerRigidbody.position.y));
+            }
+            else {
+
+                playerRigidbody.velocity = directionToMakeStep;//movemos  a la direccion seleccionada
+                walking = true;
             }
         }
         else//si no se esta moviendo
@@ -81,6 +92,8 @@ public class PlayerController : MonoBehaviour
                     isMoving = true;//ponemos en true para empesar a movernos
                     timeToMakeStepCounter = timeToMakeStep;//re iniciamos el contador
                     axisPress = Input.GetAxisRaw(horizontal);
+                    
+                    lastMovement = new Vector2(Input.GetAxisRaw(horizontal), 0);
                 }
 
                 if (Mathf.Abs(Input.GetAxisRaw(vertical)) > 0.5f)
@@ -92,6 +105,7 @@ public class PlayerController : MonoBehaviour
                     //this.transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, (Input.GetAxisRaw(vertical) * distance), 0), (Input.GetAxisRaw(vertical) * distance) * Time.deltaTime);
                     //this.transform.Translate(new Vector2(0, Input.GetAxisRaw(vertical) * distance));
                     axisPress = Input.GetAxisRaw(horizontal);
+                    lastMovement = new Vector2(0, Input.GetAxisRaw(vertical));
 
                 }
             }
@@ -99,6 +113,9 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat(horizontal, directionToMakeStep.x);//lo movemos ya con los valores dados
         animator.SetFloat(vertical, directionToMakeStep.y);//lo 
+        animator.SetBool(walkingState, isMoving);
+        animator.SetFloat(LastHorizontal, lastMovement.x);//lo movemos ya con los valores dados
+        animator.SetFloat(lastVertical, lastMovement.y);//lo 
 
     }
 
