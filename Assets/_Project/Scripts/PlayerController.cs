@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 directionToMakeStep;//una direccion de movimiento
 
+    private float axisPress;//saber si se esta moviendo o no
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +55,7 @@ public class PlayerController : MonoBehaviour
         if (isMoving)
         {
             timeToMakeStepCounter -= Time.deltaTime;//descuenta el tiempo del ultimo renderisado
-            playerRigidbody.velocity = directionToMakeStep;//movemos al enemigo a la direccion
+            playerRigidbody.velocity =  directionToMakeStep;//movemos al enemigo a la direccion
 
             if (timeToMakeStepCounter < 0)//si se acaba el tiempo de movimiento
             {
@@ -62,6 +63,7 @@ public class PlayerController : MonoBehaviour
                 timeBetweenStepsCounter = timeBetweenSteps;//reinicia el contador
                 playerRigidbody.velocity = Vector2.zero;//para el movimiento
                 directionToMakeStep = playerRigidbody.velocity;
+                playerRigidbody.position = new Vector2(Mathf.Round(playerRigidbody.position.x), Mathf.Round(playerRigidbody.position.y));
             }
         }
         else//si no se esta moviendo
@@ -78,6 +80,7 @@ public class PlayerController : MonoBehaviour
                     directionToMakeStep = new Vector2( Input.GetAxisRaw(horizontal) * distance, 0);
                     isMoving = true;//ponemos en true para empesar a movernos
                     timeToMakeStepCounter = timeToMakeStep;//re iniciamos el contador
+                    axisPress = Input.GetAxisRaw(horizontal);
                 }
 
                 if (Mathf.Abs(Input.GetAxisRaw(vertical)) > 0.5f)
@@ -88,6 +91,7 @@ public class PlayerController : MonoBehaviour
                     timeToMakeStepCounter = timeToMakeStep;//re iniciamos el contador
                     //this.transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, (Input.GetAxisRaw(vertical) * distance), 0), (Input.GetAxisRaw(vertical) * distance) * Time.deltaTime);
                     //this.transform.Translate(new Vector2(0, Input.GetAxisRaw(vertical) * distance));
+                    axisPress = Input.GetAxisRaw(horizontal);
 
                 }
             }
@@ -96,10 +100,14 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat(horizontal, directionToMakeStep.x);//lo movemos ya con los valores dados
         animator.SetFloat(vertical, directionToMakeStep.y);//lo 
 
+    }
 
-
-
-
-
+    private bool esMultiplo(int n1, int n2)
+    {
+        if (n1 % n2 == 0)
+        {
+            return true;
+        }
+        return false;
     }
 }
