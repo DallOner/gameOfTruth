@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public float distance = 32f;
     public float speed = 4f;
 
-    private bool walking = false;
+
     public Vector2 lastMovement = Vector2.zero;
     private const string horizontal = "Horizontal";
     private const string vertical = "Vertical";
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     {
      
 
-        walking = false;
+
         if (isMoving)
         {
             timeToMakeStepCounter -= Time.deltaTime;//descuenta el tiempo del ultimo renderisado
@@ -63,7 +63,6 @@ public class PlayerController : MonoBehaviour
             else {
 
                 playerRigidbody.velocity = directionToMakeStep;//movemos  a la direccion seleccionada
-                walking = true;
             }
         }
         else//si no se esta moviendo
