@@ -24,7 +24,8 @@ public class RoomSpawner : MonoBehaviour
     //
     void Start()
     {
-        Invoke("Spown", 0.1f);
+        rougeLike = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RougeLikeManager>();
+        Invoke("Spown", 0.5f);
 
     }
 
@@ -37,23 +38,22 @@ public class RoomSpawner : MonoBehaviour
 
                 case 1:
                     aux = Random.Range(0, rougeLike.bottonRooms.Length);
-                    Instantiate(rougeLike.bottonRooms[aux], transform.position, rougeLike.bottonRooms[aux].transform.rotation);
+                    Instantiate(rougeLike.bottonRooms[aux], transform.position, Quaternion.identity);
                     break;
 
                 case 2:
                     aux = Random.Range(0, rougeLike.topRooms.Length);
-                    Instantiate(rougeLike.topRooms[aux], transform.position, rougeLike.topRooms[aux].transform.rotation);
+                    Instantiate(rougeLike.topRooms[aux], transform.position, Quaternion.identity);
                     break;
-                /*Fall through*/
 
                 case 3:
                     aux = Random.Range(0, rougeLike.leftRooms.Length);
-                    Instantiate(rougeLike.leftRooms[aux], transform.position, rougeLike.leftRooms[aux].transform.rotation);
+                    Instantiate(rougeLike.leftRooms[aux], transform.position, Quaternion.identity);
                     break;
 
                 case 4:
                     aux = Random.Range(0, rougeLike.rightRooms.Length);
-                    Instantiate(rougeLike.rightRooms[aux], transform.position, rougeLike.rightRooms[aux].transform.rotation);
+                    Instantiate(rougeLike.rightRooms[aux], transform.position,Quaternion.identity);
                     break;
             }
             spowned = true;
@@ -63,12 +63,12 @@ public class RoomSpawner : MonoBehaviour
     {
         if (collision.CompareTag("SpawnPoint"))
         {
-            if (!collision.GetComponent<RoomSpawner>().spowned && !spowned) 
-            {
-                Instantiate(rougeLike.closedRooms, transform.position, rougeLike.closedRooms.transform.rotation);
-                Destroy(gameObject);
-            }
-            
+            //if (!collision.GetComponent<RoomSpawner>().spowned && !spowned) 
+            //{
+            //    Instantiate(rougeLike.closedRooms, transform.position, rougeLike.closedRooms.transform.rotation);
+                
+            //}
+            Destroy(gameObject);
         }
     }
 }
