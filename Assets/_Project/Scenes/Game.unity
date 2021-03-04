@@ -714,7 +714,7 @@ PrefabInstance:
     - target: {fileID: 6539536241875159373, guid: 4fa3a7c4fa1208a45b5c68c7e410c7d8, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 380fa34a8e4d9f14f89a1b216f391cff, type: 3}
+      objectReference: {fileID: 8300000, guid: b82fb8154163c3849b7737ca7a718573, type: 3}
     - target: {fileID: 6539536241875159375, guid: 4fa3a7c4fa1208a45b5c68c7e410c7d8, type: 3}
       propertyPath: m_Name
       value: Spectrum analyzer
