@@ -196,7 +196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3052243459544459236, guid: 6491072dd1b9a0b449daa9b5af00ffd6, type: 3}
       propertyPath: timeBetweenSteps
-      value: 0.25
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3052243459544459239, guid: 6491072dd1b9a0b449daa9b5af00ffd6, type: 3}
       propertyPath: m_Name
