@@ -16,7 +16,9 @@ MonoBehaviour:
   CategoryNames:
   - Custom
   - Example
+  - GameOfTruth
   - General
   Categories:
   - {fileID: 11400000, guid: 40f9e81ff80114a47a3721228ba749ed, type: 2}
+  - {fileID: 11400000, guid: 6c6cd3b1583672d4aafc1c6661bdfa9f, type: 2}
   - {fileID: 11400000, guid: 4f1f533c64a0b5942b0971244a5126f1, type: 2}

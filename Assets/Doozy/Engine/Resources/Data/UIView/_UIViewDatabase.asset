@@ -17,6 +17,8 @@ MonoBehaviour:
   - Custom
   - Example
   - General
+  - GameOfTruth
   Categories:
   - {fileID: 11400000, guid: b01e98f4801f7124ba39e1dac4debf90, type: 2}
   - {fileID: 11400000, guid: ad10783cc546e544682ea67267a28873, type: 2}
+  - {fileID: 11400000, guid: 1a3a28044981c20459f5215c4a0756e4, type: 2}
