@@ -37,7 +37,7 @@ Transform:
   - {fileID: 5033555741936583871}
   - {fileID: 5264688056649484858}
   - {fileID: 5264688056388976146}
-  - {fileID: 4687737477830495881}
+  - {fileID: 4899824872326491632}
   - {fileID: 2465304980124075416}
   - {fileID: 4743317701025020703}
   - {fileID: 1070404981334965341}
@@ -551,6 +551,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5471685543428034267}
     m_Modifications:
+    - target: {fileID: 581238955231694884, guid: 91f55f14ba4405a439251a574c9d004b, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 581238955231694884, guid: 91f55f14ba4405a439251a574c9d004b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 240.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 581238955231694884, guid: 91f55f14ba4405a439251a574c9d004b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 188.8
+      objectReference: {fileID: 0}
     - target: {fileID: 784019294585353048, guid: 91f55f14ba4405a439251a574c9d004b, type: 3}
       propertyPath: m_Name
       value: Chameleon
@@ -601,9 +613,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91f55f14ba4405a439251a574c9d004b, type: 3}
---- !u!4 &4687737477830495881 stripped
+--- !u!4 &4899824872326491632 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 784019294585353053, guid: 91f55f14ba4405a439251a574c9d004b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 581238955231694884, guid: 91f55f14ba4405a439251a574c9d004b, type: 3}
   m_PrefabInstance: {fileID: 5471685542587448788}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5471685542988270666
