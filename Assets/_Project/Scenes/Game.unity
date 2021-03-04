@@ -210,6 +210,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3512034206774267851, guid: 6491072dd1b9a0b449daa9b5af00ffd6, type: 3}
+      propertyPath: m_Mass
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5495800021623194160, guid: 6491072dd1b9a0b449daa9b5af00ffd6, type: 3}
       propertyPath: m_Size.x
       value: 12

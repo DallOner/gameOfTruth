@@ -71,30 +71,32 @@ public class PlayerController : MonoBehaviour
             if (timeBetweenStepsCounter < 0)//si se acaba el tiempo de espera para el siguiente
             {
                 
-
-                if (Mathf.Abs(Input.GetAxisRaw(horizontal)) > 0.5f)
+                if (Input.anyKeyDown)
                 {
-                    //this.transform.Translate(new Vector2(Input.GetAxisRaw(horizontal) * distance, 0));
+                    if (Mathf.Abs(Input.GetAxisRaw(horizontal)) > 0.5f)
+                    {
+                        //this.transform.Translate(new Vector2(Input.GetAxisRaw(horizontal) * distance, 0));
 
-                    directionToMakeStep = new Vector2( Input.GetAxisRaw(horizontal) * distance, 0);
-                    isMoving = true;//ponemos en true para empesar a movernos
-                    timeToMakeStepCounter = timeToMakeStep;//re iniciamos el contador
-                    axisPress = Input.GetAxisRaw(horizontal);
-                    
-                    lastMovement = new Vector2(Input.GetAxisRaw(horizontal), 0);
-                }
+                        directionToMakeStep = new Vector2( Input.GetAxisRaw(horizontal) * distance, 0);
+                        isMoving = true;//ponemos en true para empesar a movernos
+                        timeToMakeStepCounter = timeToMakeStep;//re iniciamos el contador
+                        axisPress = Input.GetAxisRaw(horizontal);
+                        
+                        lastMovement = new Vector2(Input.GetAxisRaw(horizontal), 0);
+                    }
 
-                if (Mathf.Abs(Input.GetAxisRaw(vertical)) > 0.5f)
-                {
-                    
-                    directionToMakeStep = new Vector2(0, Input.GetAxisRaw(vertical) * distance);
-                    isMoving = true;//ponemos en true para empesar a movernos
-                    timeToMakeStepCounter = timeToMakeStep;//re iniciamos el contador
-                    //this.transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, (Input.GetAxisRaw(vertical) * distance), 0), (Input.GetAxisRaw(vertical) * distance) * Time.deltaTime);
-                    //this.transform.Translate(new Vector2(0, Input.GetAxisRaw(vertical) * distance));
-                    axisPress = Input.GetAxisRaw(horizontal);
-                    lastMovement = new Vector2(0, Input.GetAxisRaw(vertical));
+                    if (Mathf.Abs(Input.GetAxisRaw(vertical)) > 0.5f)
+                    {
+                        
+                        directionToMakeStep = new Vector2(0, Input.GetAxisRaw(vertical) * distance);
+                        isMoving = true;//ponemos en true para empesar a movernos
+                        timeToMakeStepCounter = timeToMakeStep;//re iniciamos el contador
+                        //this.transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, (Input.GetAxisRaw(vertical) * distance), 0), (Input.GetAxisRaw(vertical) * distance) * Time.deltaTime);
+                        //this.transform.Translate(new Vector2(0, Input.GetAxisRaw(vertical) * distance));
+                        axisPress = Input.GetAxisRaw(horizontal);
+                        lastMovement = new Vector2(0, Input.GetAxisRaw(vertical));
 
+                    }
                 }
             }
         }
