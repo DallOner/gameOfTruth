@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5830087943890253373}
   - component: {fileID: 5830087943890253372}
   - component: {fileID: 5830087943890253370}
+  - component: {fileID: 3808498388725923041}
   m_Layer: 0
   m_Name: Graveyard-tumb2-light
   m_TagString: Untagged
@@ -109,3 +110,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 16, y: 32}
   m_EdgeRadius: 0
+--- !u!114 &3808498388725923041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5830087943890253375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91effc7f91a7bd946a2b714e8894f069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier: 0
+  Range_ToFollow: 3
+  Multiplier: 1
+  Custom_Range: {fileID: 0}
+  UseLerp: 1
+  LerpSpeed: 0
+  UseBaseScale: 1
+  V3modifier: {x: 0.001, y: 0.001, z: 0}

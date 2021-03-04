@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3112917526228841508}
   - component: {fileID: 3112917526228841499}
+  - component: {fileID: 6503544550407264709}
   m_Layer: 0
   m_Name: Castle-standart2-light
   m_TagString: Untagged
@@ -82,3 +83,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6503544550407264709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3112917526228841498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91effc7f91a7bd946a2b714e8894f069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier: 0
+  Range_ToFollow: 3
+  Multiplier: 1
+  Custom_Range: {fileID: 0}
+  UseLerp: 1
+  LerpSpeed: 0
+  UseBaseScale: 1
+  V3modifier: {x: 0.002, y: 0.002, z: 0}
