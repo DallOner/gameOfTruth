@@ -1911,6 +1911,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 743222857220337920, guid: e2050cd9b97ea19448ee961085486e96, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -175
+      objectReference: {fileID: 0}
+    - target: {fileID: 743222857220337920, guid: e2050cd9b97ea19448ee961085486e96, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -120
+      objectReference: {fileID: 0}
     - target: {fileID: 743222857220337927, guid: e2050cd9b97ea19448ee961085486e96, type: 3}
       propertyPath: playerHealth
       value: 
