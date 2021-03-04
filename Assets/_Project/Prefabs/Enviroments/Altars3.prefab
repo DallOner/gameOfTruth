@@ -1274,6 +1274,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 581238955231694884, guid: 91f55f14ba4405a439251a574c9d004b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 240.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 581238955231694884, guid: 91f55f14ba4405a439251a574c9d004b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 220.8
+      objectReference: {fileID: 0}
     - target: {fileID: 784019294585353048, guid: 91f55f14ba4405a439251a574c9d004b, type: 3}
       propertyPath: m_Name
       value: Chameleon (4)
@@ -2059,6 +2067,10 @@ PrefabInstance:
     - target: {fileID: 581238955231694884, guid: 91f55f14ba4405a439251a574c9d004b, type: 3}
       propertyPath: m_RootOrder
       value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 581238955231694884, guid: 91f55f14ba4405a439251a574c9d004b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 240.3
       objectReference: {fileID: 0}
     - target: {fileID: 784019294585353048, guid: 91f55f14ba4405a439251a574c9d004b, type: 3}
       propertyPath: m_Name
