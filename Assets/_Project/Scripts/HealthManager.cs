@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class HealthManager : MonoBehaviour
 {
     /**** Variables. ****/
 
     [SerializeField]
     private int maxHealth;
+    private Transform playerPosition;
 
     public int currentHealth;
     private SFXManager sfxManager;
@@ -28,9 +31,11 @@ public class HealthManager : MonoBehaviour
         //Verificamos si la vida es menor a cero.
         if (currentHealth <= 0)
         {
+            SceneManager.LoadScene("GameOver");
             //Desactivamos el GameObject porque no tiene mas vidas.
             gameObject.SetActive(false);
             sfxManager.playerDead.Play();
+            
             // Instanciar un objeto que contenga el Gameover y pueda oir el PressX to Try Again.
         }
     }
