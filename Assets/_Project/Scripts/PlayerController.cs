@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private const string LastHorizontal = "LastHorizontal";
     private const string walkingState = "Walking";
 
+    private SFXManager sfxManager;
     private Animator animator;
     [SerializeField] //se usa para ver las variables en el editor a pesar de que sean privadas
     private Vector3 targetPosition; //tener siempre un lugar de referencia
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sfxManager = FindObjectOfType<SFXManager>();
         animator = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody2D>();//inicilisamos las variabes
 
@@ -47,9 +49,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
-
-
+    
         if (isMoving)
         {
             timeToMakeStepCounter -= Time.deltaTime;//descuenta el tiempo del ultimo renderisado
@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
                         axisPress = Input.GetAxisRaw(horizontal);
                         
                         lastMovement = new Vector2(Input.GetAxisRaw(horizontal), 0);
+                        sfxManager.jump.Play();
                     }
 
                     if (Mathf.Abs(Input.GetAxisRaw(vertical)) > 0.5f)
@@ -95,6 +96,7 @@ public class PlayerController : MonoBehaviour
                         //this.transform.Translate(new Vector2(0, Input.GetAxisRaw(vertical) * distance));
                         axisPress = Input.GetAxisRaw(horizontal);
                         lastMovement = new Vector2(0, Input.GetAxisRaw(vertical));
+                        sfxManager.jump.Play();
 
                     }
                 }
@@ -105,7 +107,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat(vertical, directionToMakeStep.y);//lo 
         animator.SetBool(walkingState, isMoving);
         animator.SetFloat(LastHorizontal, lastMovement.x);//lo movemos ya con los valores dados
-        animator.SetFloat(lastVertical, lastMovement.y);//lo 
+        animator.SetFloat(lastVertical, lastMovement.y);//lo
 
     }
 }

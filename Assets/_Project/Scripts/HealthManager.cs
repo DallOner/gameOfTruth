@@ -9,6 +9,7 @@ public class HealthManager : MonoBehaviour
     private int maxHealth;
 
     public int currentHealth;
+    private SFXManager sfxManager;
     
 
     /**** Metudus. ****/
@@ -18,6 +19,7 @@ public class HealthManager : MonoBehaviour
     {
         //iniciamos el juego con la vida maxima.
         currentHealth = maxHealth;
+        sfxManager = FindObjectOfType<SFXManager>();
     }
 
     // Update is called once per frame
@@ -28,6 +30,8 @@ public class HealthManager : MonoBehaviour
         {
             //Desactivamos el GameObject porque no tiene mas vidas.
             gameObject.SetActive(false);
+            sfxManager.playerDead.Play();
+            // Instanciar un objeto que contenga el Gameover y pueda oir el PressX to Try Again.
         }
     }
 
@@ -35,7 +39,7 @@ public class HealthManager : MonoBehaviour
     public void DamageCharacter(int damage)
     {
         currentHealth -= damage;
-        
+        sfxManager.playerHurt.Play();
     }
 
     //Cuando el personaje hace 'Level Up', le actualizamos la vida, con mas vida y se la rellenamos completamente.
